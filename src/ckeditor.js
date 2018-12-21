@@ -29,6 +29,7 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Font from '@ckeditor/ckeditor5-font/src/font';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -55,7 +56,8 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	Alignment
+	Alignment,
+	Font
 ];
 
 // Editor configuration.
@@ -82,12 +84,17 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	image: {
-		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
-			'|',
-			'imageTextAlternative'
-		]
+		toolbar: [ 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
+        styles: [
+            // This option is equal to a situation where no style is applied.
+            'full',
+
+            // This represents an image aligned to the left.
+            'alignLeft',
+
+            // This represents an image aligned to the right.
+            'alignRight'
+        ]
 	},
 	table: {
 		contentToolbar: [
